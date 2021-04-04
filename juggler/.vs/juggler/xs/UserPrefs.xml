@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{1EC240E3-30FE-154E-004C-3FAE9AF2671F}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/controller.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/rotation.cs">
     <Files>
-      <File FileName="Assets/controller.cs" Line="5" Column="1" />
+      <File FileName="Assets/controller.cs" Line="70" Column="9" />
+      <File FileName="Assets/rotation.cs" Line="7" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,6 +12,14 @@
               <Node name="controller.cs" selected="True" />
             </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Unity" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
