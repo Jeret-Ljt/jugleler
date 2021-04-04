@@ -28,7 +28,6 @@ public class rotation : MonoBehaviour
         target = param[0];
         times = (int) (param[1] / fixedDeltaTime);
 
-
         delta = (target - angle) / times; //the tiny-angle every time rotate
 
         Debug.Log(delta);

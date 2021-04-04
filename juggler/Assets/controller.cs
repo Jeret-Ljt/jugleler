@@ -46,6 +46,11 @@ public class controller : MonoBehaviour
 
     private const int Buffsize = 100;
     private double Hit_Height = 8;
+    private double Plate_Length = 299;
+    private double Middle_Length = 80;
+    private double Lower_Length = 89;
+    private double engine_pos = 80.477;
+
     private double fixedDeltaTime;
     private myRandom ND = new myRandom();
     private int index;
@@ -54,7 +59,7 @@ public class controller : MonoBehaviour
     private double predict_time_delta = 0.03;
     private double predict_time_min = 0.01;
     private double predict_time_max = 0.03;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -79,6 +84,16 @@ public class controller : MonoBehaviour
         a = Math.Min(a, r);
         a = Math.Max(a, l);
         return a;
+    }
+
+    private double calc_phi(double Height, double phi)
+    {
+        Vector2 p1 = new Vector2((float) (-Math.Cos(phi) * Plate_Length / 2), (float)(-Math.Sin(phi) * Plate_Length / 2 + Height));
+        Vector2 p2 = new Vector2((float) -engine_pos, 0);
+        float R1 = (float)Middle_Length;
+        float R2 = (float)Lower_Length;
+        
+        return 0;
     }
     private void FixedUpdate()
     {
@@ -151,7 +166,15 @@ public class controller : MonoBehaviour
             double pre_vy = res_y[1];
 
             double phi_x = (Math.PI / 2 - Math.Atan2(-pre_vh, pre_vx)) / 2;
-            
+            double phi_y = (Math.PI / 2 - Math.Atan2(-pre_vh, pre_vy)) / 2;
+
+
+            double[] param = new double[3];
+            param[0] = calc(Hit_Height, phi_x);
+            param[1] = 0.03;
+            param[2] = 2.1;
+            engine[2].SendMessage("set_target", param);
+
         }
 
 

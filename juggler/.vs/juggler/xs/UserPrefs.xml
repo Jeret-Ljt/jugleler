@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{1EC240E3-30FE-154E-004C-3FAE9AF2671F}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/rotation.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Assets/controller.cs" Line="70" Column="9" />
-      <File FileName="Assets/rotation.cs" Line="7" Column="22" />
+      <File FileName="Assets/controller.cs" Line="90" Column="13" />
+      <File FileName="Assets/rotation.cs" Line="14" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
