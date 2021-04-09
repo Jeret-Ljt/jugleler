@@ -9,10 +9,10 @@ public class rotation : MonoBehaviour
 
     public Vector3 point, aixs;
 
-    private double rotate_once = 0.5;
+    private const double rotate_once = 0.5;
     private int status;
     private double fixedDeltaTime;
-    private double angle, target, delta;
+    private double angle, target, delta, virtual_angle;
     private int times;
     // Start is called before the first frame update
     void Start()
@@ -25,12 +25,13 @@ public class rotation : MonoBehaviour
 
     private void set_target(double[] param)
     {
+        status = 0;
         target = param[0];
         times = (int) (param[1] / fixedDeltaTime);
 
         delta = (target - angle) / times; //the tiny-angle every time rotate
 
-        Debug.Log(delta);
+        virtual_angle = angle;
         status = (int) param[2];
 
     }
@@ -44,8 +45,8 @@ public class rotation : MonoBehaviour
     }
     void Impuls(int dir)
     {
-        Debug.Log(dir);
         gameObject.transform.RotateAround(point, aixs, (float)rotate_once * dir);
+        angle += dir * rotate_once;
     }
     private void FixedUpdate()
     {
@@ -56,7 +57,7 @@ public class rotation : MonoBehaviour
             {
                 double[] param = new double[3];
                 param[0] = 0;
-                param[1] = 0.05;
+                param[1] = 0.08;
                 param[2] = 1.1;
                 set_target(param);
                 return;
@@ -69,11 +70,13 @@ public class rotation : MonoBehaviour
             return;
         }
         times--;
-        double new_angle = angle + delta;
-        if ((int)(new_angle / rotate_once) != (int)(angle / rotate_once))
+        double new_angle = virtual_angle + delta;
+        if ((int)(new_angle / rotate_once) != (int)(virtual_angle / rotate_once))
         {
             Impuls(Math.Sign(delta));
         }
-        angle = new_angle;
+        virtual_angle = new_angle;
+
+
     }
 }
