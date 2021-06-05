@@ -31,12 +31,7 @@ public class ball : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 pos = gameObject.transform.position;
-        if (pos.y <= 5)
-        {
-            Init();
-            controller.SendMessage("Clear");
-            return;
-        }
+        
 
     }
 }
